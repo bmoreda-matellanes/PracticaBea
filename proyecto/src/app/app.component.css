@@ -1,0 +1,24 @@
+.header {
+    background-color: cadetblue;
+    padding: 20px;
+}
+.titulo {
+    font-size: 2em;
+    color: white;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.enlaces {
+    float: right;
+    color: #add0ee;
+}
+.enlaces a {
+    color: white;
+    text-decoration: none;
+}
+.enlaces a:hover {
+    text-decoration: underline;
+}
+.content {
+    padding: 20px;
+}

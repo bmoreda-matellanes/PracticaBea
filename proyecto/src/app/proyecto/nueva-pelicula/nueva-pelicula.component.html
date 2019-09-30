@@ -1,0 +1,8 @@
+
+<div>
+<table border="black">
+    <tr><td>Nombre de la Pelicula: <input type="text" name="titulodelapeli"  [(ngModel)]="peliculas.titulo">
+                                   <input type="hidden" name="idPelicula"    [(ngModel)]="peliculas.id">  </td></tr>
+    <tr><td><button mat-raised-button color="warn" (click)="metoEnArray(peliculas)">Guardar</button></td></tr>
+</table>
+</div>

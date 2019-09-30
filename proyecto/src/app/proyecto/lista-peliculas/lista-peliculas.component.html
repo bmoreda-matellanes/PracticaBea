@@ -1,0 +1,21 @@
+<div class="lista-peliculas">
+    <div class="titulo">{{ titulo }} - {{ peliculas ? peliculas.length : 0 }} items</div>
+    
+    <div class="lista" *ngIf="peliculas && peliculas.length > 0">
+        <div class="pelicula" *ngFor="let pelicula of peliculas" >
+            <input type="checkbox" class="accion seleccionar" (click)="chequearPelicula(pelicula)">&nbsp;
+            <span>{{ pelicula.titulo }}</span>
+        </div>
+    </div>
+
+    <div>
+        <button mat-raised-button color="warn" (click)="guardarPelicula(peliculas)">{{textbAdd}}</button> 
+        <button mat-raised-button color="warn" (click)="borrarPelicula(peliculas)">{{textbDel}}</button>  
+    </div>
+
+    <div *ngIf="pulsamos">
+    <app-nueva-pelicula [peliculas]="nuevaPelicula" (agrego)="agregoAlArray($event)"></app-nueva-pelicula> 
+    </div> 
+
+
+</div>
