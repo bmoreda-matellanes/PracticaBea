@@ -40,6 +40,7 @@ export class ListaPeliculasComponent implements OnInit {
   pulsamos1 = false; 
   pulsamos2 = false;
   algunMarcado = false;
+  variosMarcados = false;
 
   constructor() { }
 
@@ -80,6 +81,9 @@ export class ListaPeliculasComponent implements OnInit {
   chequearPelicula(pelisel) {
     this.algunMarcado = !this.algunMarcado;
     this.contMarc = this.contMarc + 1;
+    if (this.contMarc > 1){
+      this.variosMarcados = true;
+    }
     console.log("contMarc:" + this.contMarc); 
     console.log("vamos por chequearPelicula en el ts de lista-peliculas");
     console.dir(pelisel);
