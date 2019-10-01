@@ -30,6 +30,8 @@ export class ListaPeliculasComponent implements OnInit {
   @Output()
   borro = new EventEmitter<any>();
 
+  nuevaPelicula = [];
+
   pulsamos = false;  /* borramos */
 
   constructor() { }

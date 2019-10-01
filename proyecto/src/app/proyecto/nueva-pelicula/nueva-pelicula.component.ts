@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class NuevaPeliculaComponent implements OnInit {
 
   @Input()
-  peliculas;
+  peliculas=[];
 
   @Output()
   agrego = new EventEmitter<any>();
