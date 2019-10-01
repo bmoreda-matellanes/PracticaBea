@@ -15,13 +15,9 @@ export class ItemPeliculaComponent implements OnInit {
     { id: '4', titulo: 'IT' , marcado:false}
   ];
 
-  /*pulsamos = false;
-  borramos = false;*/
-  /*marcado=false;*/
-
   nuevaPelicula = [];
   mdPelicula = [];
-  /*peliABorrar = [];*/
+  
   constructor() {
     
    }
@@ -55,9 +51,7 @@ export class ItemPeliculaComponent implements OnInit {
     for (let pelicula of this.peliculasDisponibles){
 
       if (pelicula.marcado) {
-        /*int i = this.peliculasDisponibles.indexOf(pelicula.id);*/
-        this.peliculasDisponibles = this.peliculasDisponibles.filter(t => t.id !== pelicula.id);
-        /*this.peliculasDisponibles = this.peliculasDisponibles.splice(i,1);*/
+         this.peliculasDisponibles = this.peliculasDisponibles.filter(t => t.id !== pelicula.id);
       } 
     }
 
@@ -68,6 +62,9 @@ export class ItemPeliculaComponent implements OnInit {
 
   modiPelicula(mdpelicula){
     console.log('llamamos a modiPelicula en el ts de item-pelicula');
+      
+    console.log("lista de peliculas despues de modificar");
+    console.log(this.peliculasDisponibles);
 
   }
 

@@ -41,6 +41,7 @@ export class ListaPeliculasComponent implements OnInit {
   pulsamos2 = false;
   algunMarcado = false;
   variosMarcados = false;
+  pelisel = [];
 
   constructor() { }
 
@@ -48,29 +49,16 @@ export class ListaPeliculasComponent implements OnInit {
   }
 
   guardarPelicula() {
+    console.log("vamos por guardarPelicula en el ts de lista-peliculas");
     this.pulsamos1 = !this.pulsamos1;
     this.nuevaPelicula = [];/* para insertar de nuevo, borramos lo que tenga en titulo el formulario*/
   }
 
-  modificarPelicula() {/*    aquiiiiiiiiiiiii*/
+  modificarPelicula() {
     console.log("vamos por modificarPelicula en el ts de lista-peliculas");
-    if (this.contMarc > 1) {
-      var aviso = alert("Solo se debe marcar una pelicula para modificar");
-      
-      for (let pelicula of this.peliculas){
-  
-        if (pelicula.marcado) {
-          pelicula.marcado = !pelicula.marcado;
-        } 
-
-        return;
-      }
-    }
-    else{
-    
     this.pulsamos2 = !this.pulsamos2;
-    this.mdPelicula = [];/* para modificar de nuevo, borramos lo que tenga en titulo el formulario*/
-    }
+    /*this.mdPelicula = [];*//* para modificar de nuevo, borramos lo que tenga en titulo el formulario*/
+    
   }
 
   borrarPelicula(pelicula) {
@@ -79,30 +67,30 @@ export class ListaPeliculasComponent implements OnInit {
   }
 
   chequearPelicula(pelisel) {
+    console.log("vamos por chequearPelicula en el ts de lista-peliculas");
     this.algunMarcado = !this.algunMarcado;
     this.contMarc = this.contMarc + 1;
     if (this.contMarc > 1){
       this.variosMarcados = true;
     }
     console.log("contMarc:" + this.contMarc); 
-    console.log("vamos por chequearPelicula en el ts de lista-peliculas");
     console.dir(pelisel);
     pelisel.marcado = !pelisel.marcado;
+    this.mdPelicula = pelisel;
   }
 
   agregoAlArray(nuevapelicula)
   {
-    this.pulsamos1 = !this.pulsamos1;
     console.log("vamos por agregoAlArray en el ts de lista-peliculas");
+    this.pulsamos1 = !this.pulsamos1;
     console.log(nuevapelicula);
     this.guardo.emit(nuevapelicula);
   }
 
-  modiEnElArray(mdpelicula)
+  modiEnElArray()
   {
-    
-    console.log(mdpelicula);
-    this.modifico.emit(mdpelicula);
+    console.log("vamos por modiEnElArray en el ts de lista-peliculas");
+    this.pulsamos2 = !this.pulsamos2;
   }
 
 }
