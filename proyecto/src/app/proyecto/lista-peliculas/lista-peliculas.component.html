@@ -10,11 +10,16 @@
 
     <div>
         <button mat-raised-button color="warn" (click)="guardarPelicula()">{{textbAdd}}</button> 
-        <button mat-raised-button color="warn" (click)="borrarPelicula(pelicula)">{{textbDel}}</button>  
+        <button  *ngIf="algunMarcado" mat-raised-button color="warn" (click)="borrarPelicula(pelicula)">{{textbDel}}</button> 
+        <button  *ngIf="algunMarcado" mat-raised-button color="warn" (click)="modificarPelicula(pelicula)">{{textbMod}}</button>  
     </div>
 
-    <div *ngIf="pulsamos">
+    <div *ngIf="pulsamos1">
     <app-nueva-pelicula  [peliculas]="nuevaPelicula" (agrego)="agregoAlArray($event)"></app-nueva-pelicula> 
+    </div> 
+
+    <div *ngIf="pulsamos2">
+    <app-modif-pelicula  [peliculas]="mdPelicula" (agrego)="modiEnElArray($event)"></app-modif-pelicula> 
     </div> 
 
 </div>

@@ -20,6 +20,7 @@ export class ItemPeliculaComponent implements OnInit {
   /*marcado=false;*/
 
   nuevaPelicula = [];
+  mdPelicula = [];
   /*peliABorrar = [];*/
   constructor() {
     
@@ -62,6 +63,11 @@ export class ItemPeliculaComponent implements OnInit {
 
       console.log("lista de peliculas despues de borrar");
       console.log(this.peliculasDisponibles);
+
+  }
+
+  modiPelicula(mdpelicula){
+    console.log('llamamos a modiPelicula en el ts de item-pelicula');
 
   }
 

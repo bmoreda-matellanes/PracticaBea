@@ -19,8 +19,11 @@ export class ListaPeliculasComponent implements OnInit {
   @Input()
   textbDel = '';
 
-  /*@Output()
-  check = new EventEmitter<any>();*/
+  @Input()
+  textbMod = '';
+
+  @Input()
+  contMarc = 0;
 
   @Output()
   guardo = new EventEmitter<any>();
@@ -28,11 +31,15 @@ export class ListaPeliculasComponent implements OnInit {
   @Output()
   borro = new EventEmitter<any>();
 
-  nuevaPelicula = [];
+  @Output()
+  modifico = new EventEmitter<any>();
 
-  pulsamos = false; 
-  /*borramos = false;
-  marcado = false;*/
+  nuevaPelicula = [];
+  mdPelicula = [];
+
+  pulsamos1 = false; 
+  pulsamos2 = false;
+  algunMarcado = false;
 
   constructor() { }
 
@@ -40,8 +47,29 @@ export class ListaPeliculasComponent implements OnInit {
   }
 
   guardarPelicula() {
-    this.pulsamos = !this.pulsamos;
+    this.pulsamos1 = !this.pulsamos1;
     this.nuevaPelicula = [];/* para insertar de nuevo, borramos lo que tenga en titulo el formulario*/
+  }
+
+  modificarPelicula() {/*    aquiiiiiiiiiiiii*/
+    console.log("vamos por modificarPelicula en el ts de lista-peliculas");
+    if (this.contMarc > 1) {
+      var aviso = alert("Solo se debe marcar una pelicula para modificar");
+      
+      for (let pelicula of this.peliculas){
+  
+        if (pelicula.marcado) {
+          pelicula.marcado = !pelicula.marcado;
+        } 
+
+        return;
+      }
+    }
+    else{
+    
+    this.pulsamos2 = !this.pulsamos2;
+    this.mdPelicula = [];/* para modificar de nuevo, borramos lo que tenga en titulo el formulario*/
+    }
   }
 
   borrarPelicula(pelicula) {
@@ -50,21 +78,27 @@ export class ListaPeliculasComponent implements OnInit {
   }
 
   chequearPelicula(pelisel) {
-
+    this.algunMarcado = !this.algunMarcado;
+    this.contMarc = this.contMarc + 1;
+    console.log("contMarc:" + this.contMarc); 
     console.log("vamos por chequearPelicula en el ts de lista-peliculas");
     console.dir(pelisel);
     pelisel.marcado = !pelisel.marcado;
-    /*pelisel.id = *//**/
-    /*this.titulo = pelicula.titulo;*/
-    /*this.check.emit(pelisel);*/
   }
 
   agregoAlArray(nuevapelicula)
   {
-    this.pulsamos = !this.pulsamos;
+    this.pulsamos1 = !this.pulsamos1;
     console.log("vamos por agregoAlArray en el ts de lista-peliculas");
     console.log(nuevapelicula);
     this.guardo.emit(nuevapelicula);
+  }
+
+  modiEnElArray(mdpelicula)
+  {
+    
+    console.log(mdpelicula);
+    this.modifico.emit(mdpelicula);
   }
 
 }

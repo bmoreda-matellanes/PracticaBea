@@ -9,6 +9,9 @@ import { ItemReservaComponent } from './proyecto/item-reserva/item-reserva.compo
 import { ItemPeliculaComponent } from './proyecto/item-pelicula/item-pelicula.component';
 import { ListaPeliculasComponent } from './proyecto/lista-peliculas/lista-peliculas.component';
 import { NuevaPeliculaComponent } from './proyecto/nueva-pelicula/nueva-pelicula.component';
+import { ModifPeliculaComponent } from './proyecto/modif-pelicula/modif-pelicula.component';
+
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,8 @@ import { NuevaPeliculaComponent } from './proyecto/nueva-pelicula/nueva-pelicula
     ItemReservaComponent,
     ItemPeliculaComponent,
     ListaPeliculasComponent,
-    NuevaPeliculaComponent
+    NuevaPeliculaComponent,
+    ModifPeliculaComponent
   ],
   imports: [
     BrowserModule,
