@@ -19,10 +19,8 @@ export class ListaPeliculasComponent implements OnInit {
   @Input()
   textbDel = '';
 
-
-  @Output()
-  check = new EventEmitter<any>();
-
+  /*@Output()
+  check = new EventEmitter<any>();*/
 
   @Output()
   guardo = new EventEmitter<any>();
@@ -32,35 +30,41 @@ export class ListaPeliculasComponent implements OnInit {
 
   nuevaPelicula = [];
 
-  pulsamos = false;  /* borramos */
+  pulsamos = false; 
+  /*borramos = false;
+  marcado = false;*/
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  guardarPelicula(pelicula) {
-  
+  guardarPelicula() {
     this.pulsamos = !this.pulsamos;
+    this.nuevaPelicula = [];/* para insertar de nuevo, borramos lo que tenga en titulo el formulario*/
   }
 
   borrarPelicula(pelicula) {
-    
-    
     console.log("vamos por borrarPelicula en el ts de lista-peliculas");
     this.borro.emit(pelicula);
   }
 
-  chequearPelicula(pelicula) {
-  
+  chequearPelicula(pelisel) {
+
     console.log("vamos por chequearPelicula en el ts de lista-peliculas");
-    this.check.emit(pelicula);
+    console.dir(pelisel);
+    pelisel.marcado = !pelisel.marcado;
+    /*pelisel.id = *//**/
+    /*this.titulo = pelicula.titulo;*/
+    /*this.check.emit(pelisel);*/
   }
 
   agregoAlArray(nuevapelicula)
   {
     this.pulsamos = !this.pulsamos;
     console.log("vamos por agregoAlArray en el ts de lista-peliculas");
+    console.log(nuevapelicula);
     this.guardo.emit(nuevapelicula);
   }
+
 }
