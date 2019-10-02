@@ -63,6 +63,8 @@ export class ListaPeliculasComponent implements OnInit {
 
   borrarPelicula(pelicula) {
     console.log("vamos por borrarPelicula en el ts de lista-peliculas");
+    this.contMarc = 0;
+    this.algunMarcado = false;
     this.borro.emit(pelicula);
   }
 
