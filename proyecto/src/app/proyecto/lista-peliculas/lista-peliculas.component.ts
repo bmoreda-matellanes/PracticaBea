@@ -84,7 +84,9 @@ export class ListaPeliculasComponent implements OnInit {
       this.variosMarcados = true;
     }
     
-    this.mdPelicula = pelisel;
+    if (pelisel.marcado){
+    this.mdPelicula = pelisel; /* muestra lo marcado a modificar */
+    }
   }
 
   agregoAlArray(nuevapelicula)
