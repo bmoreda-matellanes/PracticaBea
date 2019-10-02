@@ -83,9 +83,7 @@ export class ListaPeliculasComponent implements OnInit {
     if (this.contMarc > 1){
       this.variosMarcados = true;
     }
-    console.log("contMarc:" + this.contMarc); 
-    console.log("algunMarcado:" + this.algunMarcado); 
-    console.log("variosMarcados:" + this.variosMarcados); 
+    
     this.mdPelicula = pelisel;
   }
 
@@ -93,7 +91,6 @@ export class ListaPeliculasComponent implements OnInit {
   {
     console.log("vamos por agregoAlArray en el ts de lista-peliculas");
     this.pulsamos1 = !this.pulsamos1;
-    console.log(nuevapelicula);
     this.guardo.emit(nuevapelicula);
   }
 
@@ -101,6 +98,8 @@ export class ListaPeliculasComponent implements OnInit {
   {
     console.log("vamos por modiEnElArray en el ts de lista-peliculas");
     this.pulsamos2 = !this.pulsamos2;
+    this.mdPelicula  = [];
+    this.contMarc = 0;
   }
 
 }

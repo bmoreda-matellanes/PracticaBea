@@ -62,9 +62,6 @@ export class ItemPeliculaComponent implements OnInit {
 
   modiPelicula(mdpelicula){
     console.log('llamamos a modiPelicula en el ts de item-pelicula');
-      
-    console.log("lista de peliculas despues de modificar");
-    console.log(this.peliculasDisponibles);
 
   }
 
