@@ -9,8 +9,8 @@
     </div>
 
     <div>
-        <button  *ngIf="!algunMarcado && !variosMarcados" mat-raised-button color="warn" (click)="guardarPelicula()">{{textbAdd}}</button> 
-        <button  *ngIf="variosMarcados" mat-raised-button color="warn" (click)="borrarPelicula(pelicula)">{{textbDel}}</button> 
+        <button  *ngIf="(!algunMarcado && !variosMarcados) && contMarc == 0" mat-raised-button color="warn" (click)="guardarPelicula()">{{textbAdd}}</button>
+        <button  *ngIf="contMarc>0 && (algunMarcado || variosMarcados)" mat-raised-button color="warn" (click)="borrarPelicula(pelicula)">{{textbDel}}</button> 
         <button  *ngIf="algunMarcado" mat-raised-button color="warn" (click)="modificarPelicula(pelicula)">{{textbMod}}</button>  
     </div>
 

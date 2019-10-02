@@ -68,14 +68,22 @@ export class ListaPeliculasComponent implements OnInit {
 
   chequearPelicula(pelisel) {
     console.log("vamos por chequearPelicula en el ts de lista-peliculas");
+    this.variosMarcados = false;
     this.algunMarcado = !this.algunMarcado;
-    this.contMarc = this.contMarc + 1;
+    console.dir(pelisel);
+    pelisel.marcado = !pelisel.marcado;
+    if (pelisel.marcado){
+      this.contMarc = this.contMarc + 1;
+    }
+    else{
+      this.contMarc = this.contMarc - 1;
+    }
     if (this.contMarc > 1){
       this.variosMarcados = true;
     }
     console.log("contMarc:" + this.contMarc); 
-    console.dir(pelisel);
-    pelisel.marcado = !pelisel.marcado;
+    console.log("algunMarcado:" + this.algunMarcado); 
+    console.log("variosMarcados:" + this.variosMarcados); 
     this.mdPelicula = pelisel;
   }
 
