@@ -18,7 +18,7 @@
     <app-nueva-pelicula  [peliculas]="nuevaPelicula" (agrego)="agregoAlArray($event)"></app-nueva-pelicula> 
     </div> 
 
-    <div *ngIf="pulsamos2">
+    <div *ngIf="pulsamos2 && !variosMarcados">
     <app-modif-pelicula  [pelicula]="mdPelicula" (modifico)="modiEnElArray()"></app-modif-pelicula> 
     </div> 
 

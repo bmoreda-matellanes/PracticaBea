@@ -100,6 +100,9 @@ export class ListaPeliculasComponent implements OnInit {
   {
     console.log("vamos por modiEnElArray en el ts de lista-peliculas");
     this.pulsamos2 = !this.pulsamos2;
+    /*if (this.variosMarcados){
+      alert("solo puedes tener un elemento seleccionado para modificar");
+    }*/
     this.mdPelicula  = [];
     this.contMarc = 0;
   }
