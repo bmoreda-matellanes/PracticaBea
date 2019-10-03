@@ -62,7 +62,14 @@ export class ItemPeliculaComponent implements OnInit {
 
   modiPelicula(mdpelicula){
     console.log('llamamos a modiPelicula en el ts de item-pelicula');
+/*
+    for (let pelicula of this.peliculasDisponibles){
 
+      if (pelicula.marcado) {
+         this.peliculasDisponibles = this.peliculasDisponibles.filter(t => t.id !== pelicula.id);
+      } 
+    }
+*/
   }
 
 }
