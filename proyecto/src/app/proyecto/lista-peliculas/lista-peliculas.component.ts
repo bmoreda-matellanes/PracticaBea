@@ -22,8 +22,8 @@ export class ListaPeliculasComponent implements OnInit {
   @Input()
   textbMod = '';
 
-  @Input()
-  contMarc = 0;
+  /*@Input()
+  contMarc = 0;*/
 
   @Output()
   guardo = new EventEmitter<any>();
@@ -42,6 +42,7 @@ export class ListaPeliculasComponent implements OnInit {
   algunMarcado = false;
   variosMarcados = false;
   pelisel = [];
+  contMarc = 0;
 
   constructor() { }
 
@@ -70,23 +71,41 @@ export class ListaPeliculasComponent implements OnInit {
 
   chequearPelicula(pelisel) {
     console.log("vamos por chequearPelicula en el ts de lista-peliculas");
-    this.variosMarcados = false;
-    this.algunMarcado = !this.algunMarcado;
+    /*this.variosMarcados = false;*/
+    /*this.algunMarcado = !this.algunMarcado;*/
     console.dir(pelisel);
     pelisel.marcado = !pelisel.marcado;
+    console.log("quiero ver esto:" + pelisel.marcado);
     if (pelisel.marcado){
       this.contMarc = this.contMarc + 1;
     }
-    else{
+    if (!pelisel.marcado){
       this.contMarc = this.contMarc - 1;
     }
+    
     if (this.contMarc > 1){
       this.variosMarcados = true;
+      this.algunMarcado = false;
+    }
+
+    if (this.contMarc === 1){
+      this.algunMarcado = true;
+      this.variosMarcados = false;
+    }
+
+    if (this.contMarc === 0){
+      this.algunMarcado = false;
+      this.variosMarcados = false;
     }
     
     if (pelisel.marcado){
     this.mdPelicula = pelisel; /* muestra lo marcado a modificar */
     }
+
+    console.log("contMarcados:" + this.contMarc);
+    console.log("variosMarcados:" + this.variosMarcados);
+    console.log("algunMarcado:" + this.algunMarcado);
+    console.log("marcado:" + pelisel.marcado);
   }
 
   agregoAlArray(nuevapelicula)
@@ -100,11 +119,8 @@ export class ListaPeliculasComponent implements OnInit {
   {
     console.log("vamos por modiEnElArray en el ts de lista-peliculas");
     this.pulsamos2 = !this.pulsamos2;
-    /*if (this.variosMarcados){
-      alert("solo puedes tener un elemento seleccionado para modificar");
-    }*/
-    this.mdPelicula  = [];
     this.contMarc = 0;
+  
   }
 
 }

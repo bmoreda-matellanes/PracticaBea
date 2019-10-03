@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ModifPeliculaComponent implements OnInit {
 
   @Input()
-  pelicula=[];
+  pelicula;
 
   @Output()
   modifico = new EventEmitter<any>();
@@ -18,10 +18,11 @@ export class ModifPeliculaComponent implements OnInit {
   ngOnInit() {
   }
 
-  modifEnArray(peliculas) {
+  modifEnArray() {
     console.log("vamos por modifEnArray en el ts de modif-pelicula");
-
-    this.modifico.emit(peliculas);
+    console.dir(this.pelicula);
+    this.pelicula.marcado = !this.pelicula.marcado;
+    this.modifico.emit(this.pelicula);
   }
 
 }
