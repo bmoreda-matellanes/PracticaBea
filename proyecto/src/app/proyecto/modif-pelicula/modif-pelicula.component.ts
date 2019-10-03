@@ -20,9 +20,9 @@ export class ModifPeliculaComponent implements OnInit {
 
   modifEnArray() {
     console.log("vamos por modifEnArray en el ts de modif-pelicula");
-    /*console.dir(this.pelicula);*/
+  
     this.pelicula.marcado = !this.pelicula.marcado;
-    /*this.modifico.emit(this.pelicula);*/
+    
   }
 
 }

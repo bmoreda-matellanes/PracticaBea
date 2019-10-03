@@ -33,14 +33,10 @@ export class ItemPeliculaComponent implements OnInit {
     if (this.peliculasDisponibles.find(t => t.id === nuevapelicula.id)){
       return;
     }
-   
-    console.log(nuevapelicula);
     
     this.peliculasDisponibles.push(nuevapelicula);
-    console.log("lista de peliculas");
     this.nuevaPelicula = [];
-   
-    console.log(this.peliculasDisponibles);
+
 
   }
 
@@ -54,22 +50,10 @@ export class ItemPeliculaComponent implements OnInit {
          this.peliculasDisponibles = this.peliculasDisponibles.filter(t => t.id !== pelicula.id);
       } 
     }
-
-      console.log("lista de peliculas despues de borrar");
-      console.log(this.peliculasDisponibles);
-
   }
 
   modiPelicula(mdpelicula){
     console.log('llamamos a modiPelicula en el ts de item-pelicula');
-/*
-    for (let pelicula of this.peliculasDisponibles){
-
-      if (pelicula.marcado) {
-         this.peliculasDisponibles = this.peliculasDisponibles.filter(t => t.id !== pelicula.id);
-      } 
-    }
-*/
   }
 
 }

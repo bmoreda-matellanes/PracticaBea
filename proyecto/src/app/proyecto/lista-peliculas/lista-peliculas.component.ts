@@ -43,7 +43,6 @@ export class ListaPeliculasComponent implements OnInit {
   algunMarcado = false;
   variosMarcados = false;
   pelisel = [];
-  pelimod = [];
 
   contMarc = 0;
 
@@ -60,15 +59,8 @@ export class ListaPeliculasComponent implements OnInit {
 
   modificarPelicula(pelicula) {
     console.log("vamos por modificarPelicula en el ts de lista-peliculas");
-    console.dir(pelicula);
     this.pulsamos2 = !this.pulsamos2;
     this.pasePorMod = true;
-
-    /*
-    this.mdPelicula.find
-    this.tareasAbiertas.find(t => t.id === tarea.id*/
-    /*this.mdPelicula = [];*//* para modificar de nuevo, borramos lo que tenga en titulo el formulario*/
-    
   }
 
   borrarPelicula(pelicula) {
@@ -80,33 +72,22 @@ export class ListaPeliculasComponent implements OnInit {
 
   chequearPelicula(pelisel) {
     console.log("vamos por chequearPelicula en el ts de lista-peliculas");
-    // console.dir(pelisel);
   
-    this.peliculas.forEach(peliTempo =>{
-      if (peliTempo.id !== pelisel.id) {
-        peliTempo.marcado = false;
-      }
-    });
-
-    if (this.pasePorMod){
-      for (let peli of this.peliculas){
-        console.log("vuelta:" + peli.id);
-        console.dir(peli);
-        if (!this.peliculas.find(t => t.id === pelisel.id)){
-          peli.marcado = false;
+    if (this.pasePorMod){ 
+      this.peliculas.forEach(peliTempo =>{
+        if (peliTempo.id !== pelisel.id) {
+          if (peliTempo.marcado === true){
+            this.contMarc = this.contMarc - 1;
+          }
+          peliTempo.marcado = false;
+          
         }
-      }
-      console.log("xxxx");
-      
-      console.dir(this.peliculas[0]);
-      console.dir(this.peliculas[1]);
-      console.dir(this.peliculas[2]);
-      console.dir(this.peliculas[3]);
-      console.log("xxxx");
-  
+      });
     }
+    
     pelisel.marcado = !pelisel.marcado; /*atencion con esto */
-    console.log("quiero ver esto:" + pelisel.marcado);
+
+    console.log("vamos aqui:" + pelisel.marcado);
     if (pelisel.marcado){
       this.contMarc = this.contMarc + 1;
     }
@@ -132,22 +113,10 @@ export class ListaPeliculasComponent implements OnInit {
     if (pelisel.marcado){
     this.mdPelicula = pelisel; /* muestra lo marcado a modificar */
     }
-    console.log("vemossss:");
-    console.dir(this.mdPelicula);
-    /*if (this.pasePorMod){
-      this.peliculas.find(t => t.id != pelisel.id).marcado = false;
-    }*/
-   
-    console.log("antencion1");
-    console.dir(pelisel);
-    console.log(this.contMarc);
-    console.log(this.pasePorMod);
-    console.log("antencion1");
-
     console.log("contMarcados:" + this.contMarc);
     console.log("variosMarcados:" + this.variosMarcados);
     console.log("algunMarcado:" + this.algunMarcado);
-    console.log("marcado:" + pelisel.marcado);
+   
   }
 
   agregoAlArray(nuevapelicula)
@@ -161,19 +130,6 @@ export class ListaPeliculasComponent implements OnInit {
   {
     console.log("vamos por modiEnElArray en el ts de lista-peliculas");
   
-    /*
-    if (pelimod.marcado && this.contMarc > 1){
-        for (let pelicula of this.peliculas){
-          if (pelicula.id === pelimod.id){
-          }
-          else{
-            if (pelicula.marcado){
-              pelicula.marcado = !pelicula.marcado;
-              this.peliculas.splice(pelicula);
-            }
-          }
-        }
-    }*/
     this.pulsamos2 = !this.pulsamos2;
     this.contMarc = 0;
   

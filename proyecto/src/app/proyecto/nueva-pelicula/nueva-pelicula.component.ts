@@ -21,7 +21,6 @@ export class NuevaPeliculaComponent implements OnInit {
   metoEnArray(peliculas) {
     console.log("vamos por metoEnArray en el ts de nueva-pelicula");
 
-  /*  console.log(this.pulsamos);*/
     this.agrego.emit(peliculas);
   }
 
