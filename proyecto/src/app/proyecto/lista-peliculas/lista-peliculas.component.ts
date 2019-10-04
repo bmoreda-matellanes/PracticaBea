@@ -59,7 +59,9 @@ export class ListaPeliculasComponent implements OnInit {
 
   modificarPelicula(pelicula) {
     console.log("vamos por modificarPelicula en el ts de lista-peliculas");
+    console.log("pulsamos antes:" + this.pulsamos2);
     this.pulsamos2 = !this.pulsamos2;
+    console.log("pulsamos despues:" + this.pulsamos2);
     this.pasePorMod = true;
   }
 
@@ -129,8 +131,9 @@ export class ListaPeliculasComponent implements OnInit {
   modiEnElArray()
   {
     console.log("vamos por modiEnElArray en el ts de lista-peliculas");
-  
+    console.log("pulsamoss antes:" + this.pulsamos2);
     this.pulsamos2 = !this.pulsamos2;
+    console.log("pulsamoss despues:" + this.pulsamos2);
     this.contMarc = 0;
   
   }
